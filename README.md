@@ -1,4 +1,4 @@
-# teste-alunos
+# vue2-leaflet-geoman
 
 ## Project setup
 ```

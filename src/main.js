@@ -1,10 +1,10 @@
 import Vue from 'vue'
 import App from './App.vue'
 
-import { LMap, LTileLayer, LMarker } from 'vue2-leaflet';
-import 'leaflet/dist/leaflet.css';
+import { LMap, LTileLayer, LMarker } from 'vue2-leaflet'
+import 'leaflet/dist/leaflet.css'
 
-import { Icon } from 'leaflet';
+import { Icon } from 'leaflet'
 
 delete Icon.Default.prototype._getIconUrl;
 Icon.Default.mergeOptions({
@@ -20,5 +20,5 @@ Vue.component('l-marker', LMarker);
 Vue.config.productionTip = false
 
 new Vue({
-  render: h => h(App),
+  render: h => h(App)
 }).$mount('#app')

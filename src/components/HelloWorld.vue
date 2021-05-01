@@ -1,7 +1,8 @@
 <template>
   <div class="map">
-    <l-map :center="center" :zoom="zoom">
+    <l-map ref="map" :center="center" :zoom="zoom">
       <l-tile-layer :url="url"></l-tile-layer>
+      <vue-geoman :map="mapObject" v-if="mapObject" />
       <l-marker v-for="(marker, i) in markers" :key="i"
         draggable :lat-lng="marker">
         <l-tooltip>Olá mundo!</l-tooltip>
@@ -12,11 +13,13 @@
 </template>
 
 <script>
-import { LPopup, LTooltip } from "vue2-leaflet";
+import { LPopup, LTooltip } from "vue2-leaflet"
+import VueGeoman from './VueGeoman.vue'
 export default {
   components: {
     'l-popup': LPopup,
-    'l-tooltip': LTooltip
+    'l-tooltip': LTooltip,
+    'vue-geoman': VueGeoman
   },
   data () {
     return {
@@ -29,8 +32,11 @@ export default {
         {lat:-7.142305, lng:-34.8672066},
         {lat:-7.148305, lng:-34.8502066},
       ],
-      variavel_booleana: false
+      mapObject: null
     };
+  },
+  mounted() {
+    this.mapObject = this.$refs.map.mapObject
   }
 }
 </script>
